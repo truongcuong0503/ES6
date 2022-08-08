@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Info {
+            constructor(name, desc) {
+                this.name = name;
+                this.desc = desc;
+            }
+
+            static triple(value = 1) {
+                return value * 3;
+            }
+        }
+
+        class Geometry extends Info {
+            constructor(length, desc, name) {
+                super(name, desc);
+                this.length = length;
+            }
+
+            canculate(num = 1) {
+                return num;
+            }
+        }
+
+        console.log(Geometry.triple(3));
+    </script>
+</body>
+</html>

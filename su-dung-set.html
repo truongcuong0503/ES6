@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error-block {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="add-method">
+            <p>1. Thêm một loài động vật mới vào danh sách</p>
+            <input type="text" placeholder="Nhập tên động vật cần thêm" onchange="promptAnimal(this);">
+            <button class="btn btn-primary" onclick="add()">Thêm</button>
+            <br>
+            <div class="error-block" id="add-error"></div>
+        </div>
+
+        <div class="check-method">
+            <p>2. </p>
+            <input type="text" placeholder="Nhập tên động vật cần kiểm tra" onchange="promptAnimal(this);">
+            <button class="btn btn-primary" onclick="checkExist()">Kiểm tra</button>
+            <br>
+            <div class="success-block" id="exist-message"></div>
+        </div>
+    </div>
+
+    <script>
+    let animalName;
+    let animals = ["monkey", "cat", "tiger", "lion", "sheep"]
+    let animalManager = new Set(animals);
+    let addError = document.getElementById("add-error")
+    let existMessage = document.getElementById("exist-message")
+
+    function promptAnimal() {
+        animalName = obj.value;
+    }
+
+    function add() {
+        addAnimal(animalName);
+    }
+
+    function checkExist() {
+        if (isExist(animalName)) {
+            existMessage.innerText = "Animal already existed"
+        } else {
+            existMessage.innerText = "Animal not found"
+        }
+    }
+
+    function isExist(animalName) {
+        return animalManager.has(animalName);
+    }
+
+    function addAnimal(animalName) {
+        if (!isExist(animalName)) {
+            animalManager.add(animalName);
+        } else {
+            addError.innerText = "Animal already existed";
+        }
+    }
+
+    function deleteAnimal(animalName) {
+        if (!isExist(animalName)) {
+            console.log("animal not found");
+        } else {
+            animalManager.delete(animalName);
+        }
+    }
+
+    function printAllAnimal() {
+        let animalArr = [...animalManager]
+        for (const animal of object) {
+            
+        }
+    }
+   </script> 
+</body>
+</html>
